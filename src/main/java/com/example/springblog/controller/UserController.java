@@ -47,6 +47,7 @@ public class UserController {
     @Autowired
     private BoardService boardService;
 
+
     @GetMapping("/auth/joinForm")
     public String joinForm() {
         return "user/joinForm";

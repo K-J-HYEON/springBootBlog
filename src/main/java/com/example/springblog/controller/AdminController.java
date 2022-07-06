@@ -64,9 +64,6 @@ public class AdminController {
     }
 
 
-
-
-
     // 방문 통계 관리
     @GetMapping("/admin/manage/visit")
     public String manageVisit(@AuthenticationPrincipal PrincipalDetail principalDetail, Model model) {

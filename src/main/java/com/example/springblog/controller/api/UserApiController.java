@@ -51,6 +51,4 @@ public class UserApiController {
 
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
-
-
 }
