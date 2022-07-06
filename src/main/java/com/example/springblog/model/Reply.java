@@ -17,27 +17,22 @@ import java.time.LocalDate;
 @Data
 @Entity
 public class Reply {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id //Primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 프로젝트에서 연결된 DB의 넘버링 전략을 따라간다.
+    private int id; // 시퀀스, auto_increment
 
     @Column(nullable = false, length = 200)
     private String content;
 
     @ManyToOne
-    @JoinColumn(name="boardId")
+    @JoinColumn(name = "boardId")
     private Board board;
 
     @ManyToOne
     @JoinColumn(name="userId")
     private User user;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm")
-    private LocalDate createDate; // 날짜
-
-    @PrePersist // DB에 INSERT 되기 직전에 실행. 즉 DB에 값을 넣으면 자동으로 실행됨
-    public void createDate() {
-        this.createDate = LocalDate.now();
-    }
+    @CreationTimestamp
+    private Timestamp createDate;
 }
 
