@@ -21,7 +21,7 @@
 
 <hr/>
 
-#### Gradle + thymeleaf 사
+#### Gradle + thymeleaf 사용
 ### leee 댓글 참고
 ## 스프링 블로그 만들기 (Spring boot + Ajax)
 
