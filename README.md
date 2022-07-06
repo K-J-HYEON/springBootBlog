@@ -28,3 +28,6 @@
 
 ### 프로젝트 설명
 - Rest API + 비동기통신
+
+
+### 배포는 ElasticBeanStalk로 한 번 진행해보기
