@@ -28,7 +28,8 @@ public class PrincipalDetail implements UserDetails {
         return user.getUsername();
     }
 
-    // 계정이 만료되지 않았는지 리턴한다. (true : 만료 안됨)
+
+    // 계정이 만료되지 않았는지 리턴. (true : 만료 안됨)
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -40,19 +41,19 @@ public class PrincipalDetail implements UserDetails {
         return true;
     }
 
-    // 비밀번호가 만료 됐는지 확인 (true : 만료 안됨)
+    // 비밀버호 만료 됐는지 확인 (true : 만료 안됨)
     @Override
-    public boolean isCredentialsNonExpired() {
+    public boolean isCredentialNonExpired() {
         return true;
     }
 
-    // 계정이 활성화(사용가능)인지 리턴한다 (true : 활성화)
+    // 계정이 활성화(사용가능)인지 리턴 (true : 활성화)
     @Override
     public boolean isEnabled() {
         return true;
     }
 
-    // 계정의 권한을 리턴 (권한이 여러개 있을 수 있어서 루프를 돌 수도 있음)
+    // 계정의 권한을 리턴 (권한이 여러개 있을 수 있어 루프를 돌 수 있음)
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
@@ -64,4 +65,6 @@ public class PrincipalDetail implements UserDetails {
 
         return collectors;
     }
+
+
 }
