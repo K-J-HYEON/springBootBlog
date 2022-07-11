@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Service
 public class UserService {
 
@@ -27,16 +28,15 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public User 회원찾기(String username) {
-        User user = userRepository.findByUsername(username).orElseGet(() -> {
-            return new User();
-        });
+
+        User user = userRepository.findByUsername(username).get();
         return user;
     }
 
 
     @Transactional // 전체가 성공시 Commit, 실패시 Rollback - springframework
     public void 회원가입(User user) {
-        String rawPassword = user.getPassword(); // 1234 원본
+        String rawPassword = user.getPassword(); // 원본
         String encPassword = encode.encode(rawPassword); // 해쉬 비밀번호
         user.setPassword(encPassword);
         user.setRole(RoleType.USER);
@@ -64,7 +64,6 @@ public class UserService {
         }
 
         persistance.setEmail(user.getEmail());
-
 
         // 회원수정 함수 종료시 == 서비스 종료 == 트랜잭션 종료 == commit이 자동으로 됨
         // 영속화된 persistance 객체의 변화가 감지되면 더티체킹이 되어 변경된 것들을 update해준다.

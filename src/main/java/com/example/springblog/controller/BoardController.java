@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+
 @Controller
 public class BoardController {
 
@@ -34,12 +35,15 @@ public class BoardController {
         return "daily";
     }
 
-    // 운동 카테고리
+    // 데이트 카테고리
     @GetMapping("/date")
     public String date(Model model, @PageableDefault(size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         model.addAttribute("boards", boardService.카테고리글목록(pageable, "date"));
         return "date";
     }
+
+
+
 
     @GetMapping("/board/{id}")
     public String findById(@PathVariable("id") Integer id, Model model) {
@@ -57,16 +61,12 @@ public class BoardController {
         } else {
             return "redirect:/";
         }
-    }
 
-    // USER 권한이 필요
-    @GetMapping("board/saveForm")
-    public String updateForm() {
-        return "board/saveForm";
+
     }
 
 
-    // USER 권한이 필요
+
     @GetMapping("/board/saveForm")
     public String saveForm() {
         return "board/saveForm";

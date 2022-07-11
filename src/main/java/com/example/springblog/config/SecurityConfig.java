@@ -18,6 +18,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
     @Bean // IoC가 된다.
     public BCryptPasswordEncoder encodePWD() {
         return new BCryptPasswordEncoder();
