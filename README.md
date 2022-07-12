@@ -1,4 +1,4 @@
-## 계속해서 업데이트 
+## 계속해서 업데이트 중
 
 #### https://getinthere.tistory.com/16 블로그 참고
 
