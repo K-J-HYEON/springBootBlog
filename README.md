@@ -12,7 +12,7 @@
 - JWT는 추후에 앱과 연동할 때 사용예정
 
 
-7. jsp 사용할 x => thymeleaf 사용
+7. jsp 사용 x => thymeleaf 사용
 
 8. Spring Web
 - WEB MVC를 사용해 웹 애플리케이션 만드는데 필요한 스프링부트의 기본적인 요소 가짐
